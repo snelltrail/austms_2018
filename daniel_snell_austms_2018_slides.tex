@@ -1,0 +1,354 @@
+\documentclass[handout]{beamer}
+\usetheme{Madrid}
+\mode<presentation>{}
+
+\usepackage{amsfonts, amsmath, amssymb, bm}
+\usepackage{caption}
+\usepackage{tikz-cd}
+\renewcommand{\r}{\mathbb{R}}
+\newcommand{\ra}{\rightarrow}
+\renewcommand{\hat}{\widehat}
+\newcommand{\tract}{\mathcal{T}}
+\newcommand{\confmet}{\bm{g}}
+
+\include{daniel_preamble.tex}
+
+\title[Distinguished curves]{Distinguished curves in projective and conformal geometry}
+\author[Daniel Snell (UoA)]{Daniel Snell (University of Auckland)\\{ \bigskip\bigskip \small Joint work with
+A.\ Rod Gover and Armann Taghavi-Chabert}}
+\date{\today}
+
+\begin{document}
+
+\begin{frame}
+  \titlepage
+\end{frame}
+
+\section{Introduction}
+%TODO where to mention abstract index notation?
+
+\begin{frame}{Cartan geometries}
+
+Two natural generalizations of Euclidean geometry are provided by Riemannian geometry and Klein's homogeneous spaces:
+
+\vspace{1em}
+
+\[
+\begin{tikzcd}[ampersand replacement=\&, row sep=huge, column sep=huge]
+\textnormal{Euclidean geometry} \arrow[r] \arrow[d] \& \textnormal{Riemannian geometry} \arrow[d]\\
+\textnormal{Homogeneous spaces} \arrow[r] \& \textnormal{Cartan geometry}
+\end{tikzcd}
+\]
+
+\vspace{1em}
+
+Cartan geometries simultaneously generalize both of these, giving curved versions of homogeneous spaces which locally look like the flat \( G/P \).
+
+\end{frame}
+
+\begin{frame}{Conformal geometry}
+
+  \begin{definition}[Conformal manifold]
+    A conformal manifold is a pair \( (M, \bm{c}) \), where \( \bm{c} \) is an equivalence class of Riemannian metrics, with \( \hat{g} \sim g \) if, and only if, \( \hat{g} = \Omega^2 g \) for some positive function \( \Omega \in C^\infty (M) \).
+  \end{definition}
+
+  \begin{columns}
+    \begin{column}{0.6\textwidth}
+      Conformal manifolds are examples of \emph{Cartan geometries}.
+      These are curved versions of homogeneous spaces \( G/P \).
+
+      \vspace{1em}
+      The examples that we will see are from a particular subclass called \emph{parabolic geometries}, where \( G \) is semisimple, and \( P \subset G \) is a \emph{parabolic} subgroup.
+    \end{column}
+      \begin{column}{0.4\textwidth}
+        \hspace{1.5em}
+        \begin{figure}
+          \includegraphics[width=0.65\textwidth]{cartan.jpg}
+          \caption*{\'{E}lie Cartan}
+        \end{figure}
+      \end{column}
+  \end{columns}
+
+\end{frame}
+
+\begin{frame}{History}
+
+Conformal and projective geometry have been long studied, both for their own sake and for their relations to other areas of mathematics.
+\vspace{1em}\\
+The study of these geometries is difficult since they do not possess distinguished connections on their tangent bundles.
+\vspace{1em}\\
+Work of Bailey, Eastwood and Gover (1994) provides an elegant solution: work on a vector bundle of slightly higher rank. 
+
+These are the \emph{tractor bundles}.
+
+\end{frame}
+
+\begin{frame}{Tractor bundles} %TODO: change to cotractor bundle
+  \begin{definition}[Conformal tractor bundle]
+    Let \( (M, \bm{c}) \) be a conformal manifold.
+    The (standard) \emph{conformal tractor bundle}, \( \mathcal{T} \), fits into an exact sequence
+    \[
+      0 \to \mathcal{E}[-1] \overset{X}{\to} \mathcal{T} \to J^1 \mathcal{E}[1] \to 0.
+    \]
+    The invariant bundle map \( X \), called the \emph{canonical} or \emph{position} tractor will be of central importance to our main results.
+    Under a choice of metric \( g \in \bm{c} \), one has an isomorphism 
+    \[
+      \mathcal{T} \overset{g}{\cong} \mathcal{E}[1] \oplus \mathcal{E}^a [1] \oplus \mathcal{E}[-1].
+    \]
+  \end{definition}
+
+\end{frame}
+
+\begin{frame}{Tractor bundles (cont.)}
+  The conformal tractor bundle also comes equipped with an invariant connection and an invariant metric which is compatible with this connection.
+  \begin{Theorem}[Bailey, Eastwood, Gover 1994]
+    Let \( (M, \bm{c}) \) be a conformal manifold with tractor bundle \( \mathcal{T} \).
+    Then there is a conformally invariant connection on \( \mathcal{T} \), defined in a choice of metric by
+    \[
+      \nabla_a^{\mathcal{T}}
+      \begin{pmatrix}
+        \sigma \\ 
+        \mu_b \\ 
+        \rho
+      \end{pmatrix}
+      \overset{g}{:= }
+      \begin{pmatrix}
+        \nabla_a\sigma - \mu_a \\ 
+        \nabla_a\mu_b + \confmet_{ab} \rho + \mathsf{P}_{ab} \sigma \\ 
+        \nabla_a \rho - \mathsf{P}_{ab} \mu^b
+      \end{pmatrix}.
+    \]
+    The invariant metric can be written as 
+    \[
+      h^{AB} = 
+      \begin{pmatrix}
+      0 & 0 & 1 \\
+      0 & \confmet_{ab} & 0\\
+      1 & 0 & 1\\
+      \end{pmatrix}.
+    \]
+  \end{Theorem}
+\end{frame}
+
+\begin{frame}{Distinguished curves}
+  Parabolic geometries also possess a notion of distinguished curves.
+  We will focus on two cases: \\
+  \begin{center}
+    \begin{tabular}{ | c | c | }
+      \hline
+      Geometry & Distinguished curves \\ \hline
+      Projective & Usual geodesics \\ \hline
+      Conformal & Null geodesics and conformal circles \\
+      \hline
+    \end{tabular}
+  \end{center}
+
+  For these different types of curves, we get nice characterizations of the distinguished curves using tractor calculus methods. 
+\end{frame}
+
+\section{Main theorems}
+
+\begin{frame}{Main theorem for projective geometry}
+  \begin{Theorem}[Gover, S., Taghavi-Chabert 2018]
+    Let \( (M,\bm{p}) \) be a projective manifold, and \( \gamma \) a curve in \(
+    M \).
+    Then \( \gamma \) is an unparametrised oriented geodesic if, and only if,
+    along \( \gamma \) there is a non-zero parallel 2-tractor \( \Sigma^{\alpha
+    \beta}\in
+    \Gamma\left( \mathcal{E}^{ [\alpha \beta] }\right) \) such that
+    \[
+      X \wedge \Sigma = 0.
+    \]
+  \end{Theorem}
+  \pause
+  The theorem consists of two conditions:\\
+  \begin{enumerate}
+    \pause
+    \item \( X \wedge \Sigma = 0\) is an incidence relation which
+      ensures that one is on the curve, and
+    \pause
+    \item the condition \( \Sigma \) is parallel along \( \gamma \) exactly
+  recovers the geodesic equation.
+  \end{enumerate}
+\end{frame}
+
+\begin{frame}{Main theorem for conformal geometry}
+  The geodesic equation is not conformally invariant; instead one considers the
+  \emph{conformal circles}.
+  These admit a similar characterisation to geodesics in projective geometry.
+  \pause
+  \begin{Theorem}[Gover, S., Taghavi-Chabert 2018]
+    Let \( (M,\bm{c}) \) be a conformal manifold.
+    A nowhere-null curve \( \gamma \) is an oriented conformal circle if, and
+    only if, along \( \gamma \) there is a non-zero parallel 3-tractor \(
+    \Sigma^{ABC} \in \Gamma(\mathcal{E}^{[ABC]}) \) such that
+    \[
+      X \wedge \Sigma = 0.
+    \]
+  \end{Theorem}
+  \pause
+  Again the result consists of an incidence relation and an equation exactly
+  equivalent to the appropriate distinguished curve equation.
+
+  NB: The theorem for null geodesics is almost identical to the projective geometry version.
+\end{frame}
+
+\section{Conserved quantities in projective and conformal geometry}
+
+\begin{frame}{Application: conserved quantities}
+  One of the most important results about geodesics of a Riemannian manifold is
+  the following classical theorem.
+  \pause
+  \begin{Theorem}
+    Let \( (M,g) \) be a Riemannian manifold.
+    Let \( k \) a Killing vector field for the metric \( g \), and \( \gamma \)
+    a geodesic for the Levi-Civita connection \( \nabla \).
+    Then the scalar-valued function \( g(\dot{\gamma},k) \) is conserved along
+    \( \gamma \), i.e.
+    \[
+      \nabla_{\dot{\gamma}} g(\dot{\gamma}, k) = 0.
+    \]
+  \end{Theorem}
+  \pause
+  Conserved quantities are useful in numerous applications, including
+  physics, superintegrable systems, and separation of variables in the study of
+  differential equations.
+
+  It is therefore natural to ask about quantities which are conserved on a conformal or projective manifold. 
+\end{frame}
+
+\begin{frame}{Towards conserved quantities}
+  \begin{block}{A na\"{i}ve approach}
+    We take inspiration from the classical result. 
+      This required two things:
+      \begin{itemize}
+        \item a distinguished curve, and
+        \item a \emph{symmetry} of the geometry.
+      \end{itemize}
+      We have already a tractor which describes the distinguished curves. Therefore we would like to find a section \( S \) of some tractor bundle such that e.g. \( \nabla_{\dot{\gamma}} \left(\Sigma \cdot S \right) = 0 \). 
+      In light of our earlier theorems, this is equivalent to the simpler
+      \[
+        \Sigma \cdot \nabla_{\dot{\gamma}} S = 0.
+      \]
+      This tractor \( S \) should ideally be a solution to some geometric PDE on the manifold...
+  \end{block}
+\end{frame}
+
+\begin{frame}{A minor digression: elements of BGG theory}
+  Let \( \mathcal{V} \) be a tractor bundle.
+  Then one may form the \emph{twisted de Rham} sequence.
+  We shall mainly be interested in the first square:
+  \[
+    \begin{tikzcd}[ampersand replacement=\&, row sep=huge, column sep=huge]
+      \mathcal{V} \arrow[r, "\nabla^{\mathcal{T}}"] \arrow[d, "\Pi_0"] \& T^*M \otimes \mathcal{V} \arrow[l, "\hspace{-2em}\partial^*", near start, bend left=20] \arrow[d, "\Pi_1"]\\
+      \mathcal{H}_0 \arrow[r, "\Theta"] \arrow[u, dashed, "L", bend left=50] \& \mathcal{H}_1
+    \end{tikzcd}
+  \]
+  where \( \Theta := L \circ \nabla^{\mathcal{T}} \circ \Pi_1 \).
+  \begin{block}{}
+  One may ask for solutions to the equation \( \Theta \sigma = 0 \) for various tractor bundles \( \mathcal{V} \).
+  This class of \emph{BGG equations} turns out to include a large number of interesting geometric PDEs, for example: 
+  \begin{itemize}
+    \item the Killing (form/tensor) Equation, 
+    \item the Metrisability Equation,
+    \item the Almost-Einstein Equation...
+  \end{itemize}
+  \end{block}
+\end{frame}
+
+\begin{frame}{Putting it all together}
+  \begin{block}{Key idea}
+    The splitting operator \( L \) allows us to convert solutions to geometrically interesting PDEs into sections of certain tractor bundles.
+    We therefore might try replacing \( S \) in the above with \( L(\sigma) \), where \( \sigma \) solves some BGG equation.
+  \end{block}
+
+  The requirement that 
+    \[
+      \Sigma \cdot \nabla_{\dot{\gamma}} L(\sigma) = 0
+    \]
+    is not too onerous, as demonstrated by the existence of \emph{normal solutions} which one has in e.g. the flat models.
+\end{frame}
+
+\begin{frame}{A conformal example}
+  \begin{Theorem}
+    Let \( (M,\bm{c}) \) be a conformal manifold.
+    Suppose \( \gamma \) is a conformal circle, and \( k_{ab} \) is a conformal
+    Killing 2-form.
+    The form \( k_{ab} \) corresponds to a cotractor 3-form \( \mathbb{K}_{ABC}
+    \).
+    Then the scalar \( \Sigma^{ABC} \mathbb{K}_{ABC} \) is conserved along \(
+    \gamma \).
+  \end{Theorem}
+  \pause
+  \begin{proof}[Proof (Sketch)]
+    Writing \( u^a \) for the velocity of the curve \( \gamma \) and applying
+    the Leibniz rule for the (coupled) tractor connection, we calculate
+    \pause
+    \begin{align*}
+      u^a \nabla^\mathcal{T}_a \left( \Sigma^{ABC} \mathbb{K}_{ABC} \right) &=
+      \left( u^a \nabla^\mathcal{T}_a \Sigma^{ABC} \right) \mathbb{K}_{ABC} +
+      \Sigma^{ABC} u^a \nabla^\mathcal{T}_a \mathbb{K}_{ABC}\\
+      &= \Sigma^{ABC} u^a \nabla^\mathcal{T}_a \mathbb{K}_{ABC},
+    \end{align*}
+    since according to our main result, \( \Sigma^{ABC} \) has derivative zero
+    along \( \gamma \).
+    \pause
+    Using explicit formulae for \( \Sigma \) and \( \mathbb{K} \), one sees
+    that this remaining term also vanishes.
+  \end{proof}
+\end{frame}
+
+\begin{frame}{More examples}
+  During our work, we calculated explicitly several other examples, using
+  solutions to different BGG equations.\\
+  \begin{itemize}
+    \pause
+    \item In the conformal case:
+      \[
+      S^{AB} H_{AB},
+      \]
+      where \( S^{AB} \) is constructed from \( \Sigma^{ABC} \) and
+      \( H_{AB} \) is the tractor corresponding to the solution to a certain
+      conformally-invariant third-order PDE.
+    \pause
+    \item And in the projective case:
+      \[
+        \Sigma^{\alpha_1 \beta_1} \Sigma^{\alpha_2 \beta_2} H_{\alpha_1
+        \alpha_2} H_{\beta_1 \beta_2},
+      \]
+      where \( H_{\alpha \beta} \) corresponds to the projective version of the
+      aforementioned third-order equation.\\
+      \pause
+    \item Finally, in projective geometry:
+      \[
+        \Sigma^{\alpha \beta} \mathbb{K}_{\alpha \beta},
+      \]
+      where \( \mathbb{K}_{\alpha \beta} \) comes from a Killing vector field recovers the well-known conserved quantity.
+  \end{itemize}
+\end{frame}
+
+% \section{Further work}
+
+% \begin{frame}{Further work}
+%   \begin{itemize}
+%     \pause
+%     \item There is an interesting observation in all of these examples: at no
+%       point did we assume that our BGG solutions were normal, but the
+%       quantities constructed from them are still conserved!\\
+%       \pause
+%       We do not yet have a complete proof that normality is not required,
+%       but we have some reason to suspect that this is the case.\\
+%     \pause
+%     \item Our characterisation should extend to other parabolic geometries,
+%       such as c-projective geometry and CR geometry.\\
+%     \pause
+%     \item Finally, we also believe that these tools can be used to characterise
+%     distinguished submanifolds of other dimensions, such as the totally geodesic
+%     submanifolds in a projective manifold, or the totally umbilic submanifolds in
+%     a conformal manifold.
+% \end{itemize}
+% \end{frame}
+
+\end{document}
+
+
