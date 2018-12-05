@@ -1,4 +1,4 @@
-\documentclass[handout]{beamer}
+\documentclass{beamer}
 \usetheme{Madrid}
 \mode<presentation>{}
 
@@ -25,14 +25,29 @@ A.\ Rod Gover and Armann Taghavi-Chabert}}
 \end{frame}
 
 \section{Introduction}
-%TODO where to mention abstract index notation?
 
 \begin{frame}{Cartan geometries}
 
 Two natural generalizations of Euclidean geometry are provided by Riemannian geometry and Klein's homogeneous spaces:
 
 \vspace{1em}
+\[
+\begin{tikzcd}[ampersand replacement=\&, row sep=huge, column sep=huge]
+\textnormal{Euclidean geometry} \arrow[r] \arrow[d] \& \textnormal{Riemannian geometry} \\
+\textnormal{Homogeneous spaces} \&
+\end{tikzcd}
+\]
 
+\vspace{1em}
+\phantom{Cartan geometries simultaneously generalize both of these, giving curved versions of homogeneous spaces which locally look like the flat \( G/P \).}
+
+\end{frame}
+
+\begin{frame}{Cartan geometries}
+
+Two natural generalizations of Euclidean geometry are provided by Riemannian geometry and Klein's homogeneous spaces:
+
+\vspace{1em}
 \[
 \begin{tikzcd}[ampersand replacement=\&, row sep=huge, column sep=huge]
 \textnormal{Euclidean geometry} \arrow[r] \arrow[d] \& \textnormal{Riemannian geometry} \arrow[d]\\
@@ -41,7 +56,6 @@ Two natural generalizations of Euclidean geometry are provided by Riemannian geo
 \]
 
 \vspace{1em}
-
 Cartan geometries simultaneously generalize both of these, giving curved versions of homogeneous spaces which locally look like the flat \( G/P \).
 
 \end{frame}
@@ -54,11 +68,13 @@ Cartan geometries simultaneously generalize both of these, giving curved version
 
   \begin{columns}
     \begin{column}{0.6\textwidth}
+      \pause
       Conformal manifolds are examples of \emph{Cartan geometries}.
-      These are curved versions of homogeneous spaces \( G/P \).
-
       \vspace{1em}
-      The examples that we will see are from a particular subclass called \emph{parabolic geometries}, where \( G \) is semisimple, and \( P \subset G \) is a \emph{parabolic} subgroup.
+
+      \pause
+      They are even examples of 
+      a particular subclass of Cartan geometries called \emph{parabolic geometries}, where \( G \) is semisimple, and \( P \subset G \) is a \emph{parabolic} subgroup.
     \end{column}
       \begin{column}{0.4\textwidth}
         \hspace{1.5em}
@@ -75,21 +91,25 @@ Cartan geometries simultaneously generalize both of these, giving curved version
 
 Conformal and projective geometry have been long studied, both for their own sake and for their relations to other areas of mathematics.
 \vspace{1em}\\
+\pause
 The study of these geometries is difficult since they do not possess distinguished connections on their tangent bundles.
 \vspace{1em}\\
+\pause
 Work of Bailey, Eastwood and Gover (1994) provides an elegant solution: work on a vector bundle of slightly higher rank. 
 
 These are the \emph{tractor bundles}.
 
 \end{frame}
 
-\begin{frame}{Tractor bundles} %TODO: change to cotractor bundle
+\begin{frame}{Tractor bundles}
   \begin{definition}[Conformal tractor bundle]
     Let \( (M, \bm{c}) \) be a conformal manifold.
     The (standard) \emph{conformal tractor bundle}, \( \mathcal{T} \), fits into an exact sequence
+    \pause
     \[
       0 \to \mathcal{E}[-1] \overset{X}{\to} \mathcal{T} \to J^1 \mathcal{E}[1] \to 0.
     \]
+    \pause
     The invariant bundle map \( X \), called the \emph{canonical} or \emph{position} tractor will be of central importance to our main results.
     Under a choice of metric \( g \in \bm{c} \), one has an isomorphism 
     \[
@@ -101,9 +121,11 @@ These are the \emph{tractor bundles}.
 
 \begin{frame}{Tractor bundles (cont.)}
   The conformal tractor bundle also comes equipped with an invariant connection and an invariant metric which is compatible with this connection.
+  \pause
   \begin{Theorem}[Bailey, Eastwood, Gover 1994]
     Let \( (M, \bm{c}) \) be a conformal manifold with tractor bundle \( \mathcal{T} \).
     Then there is a conformally invariant connection on \( \mathcal{T} \), defined in a choice of metric by
+    \pause
     \[
       \nabla_a^{\mathcal{T}}
       \begin{pmatrix}
@@ -118,13 +140,14 @@ These are the \emph{tractor bundles}.
         \nabla_a \rho - \mathsf{P}_{ab} \mu^b
       \end{pmatrix}.
     \]
+    \pause
     The invariant metric can be written as 
     \[
       h^{AB} = 
       \begin{pmatrix}
       0 & 0 & 1 \\
       0 & \confmet_{ab} & 0\\
-      1 & 0 & 1\\
+      1 & 0 & 0\\
       \end{pmatrix}.
     \]
   \end{Theorem}
@@ -137,13 +160,43 @@ These are the \emph{tractor bundles}.
     \begin{tabular}{ | c | c | }
       \hline
       Geometry & Distinguished curves \\ \hline
-      Projective & Usual geodesics \\ \hline
+      Projective & \phantom{(Usual) geodesics} \\ \hline 
+      Conformal & \phantom{Null geodesics and conformal circles} \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \phantom{For these different types of curves, we get nice characterizations of the distinguished curves using tractor calculus methods.}
+\end{frame}
+
+\begin{frame}{Distinguished curves}
+  Parabolic geometries also possess a notion of distinguished curves.
+  We will focus on two cases: \\
+  \begin{center}
+    \begin{tabular}{ | c | c | }
+      \hline
+      Geometry & Distinguished curves \\ \hline
+      Projective & (Usual) geodesics \\ \hline 
+      Conformal & \phantom{Null geodesics and conformal circles} \\
+      \hline
+    \end{tabular}
+  \end{center}
+  \phantom{For these different types of curves, we get nice characterizations of the distinguished curves using tractor calculus methods.}
+\end{frame}
+
+\begin{frame}{Distinguished curves}
+  Parabolic geometries also possess a notion of distinguished curves.
+  We will focus on two cases: \\
+  \begin{center}
+    \begin{tabular}{ | c | c | }
+      \hline
+      Geometry & Distinguished curves \\ \hline
+      Projective & (Usual) geodesics \\ \hline 
       Conformal & Null geodesics and conformal circles \\
       \hline
     \end{tabular}
   \end{center}
-
-  For these different types of curves, we get nice characterizations of the distinguished curves using tractor calculus methods. 
+  \pause 
+  For these different types of curves, we get nice characterizations of the distinguished curves using tractor calculus methods.
 \end{frame}
 
 \section{Main theorems}
@@ -153,9 +206,8 @@ These are the \emph{tractor bundles}.
     Let \( (M,\bm{p}) \) be a projective manifold, and \( \gamma \) a curve in \(
     M \).
     Then \( \gamma \) is an unparametrised oriented geodesic if, and only if,
-    along \( \gamma \) there is a non-zero parallel 2-tractor \( \Sigma^{\alpha
-    \beta}\in
-    \Gamma\left( \mathcal{E}^{ [\alpha \beta] }\right) \) such that
+    along \( \gamma \) there is a non-zero parallel 2-tractor \( \Sigma^{A B}\in
+    \Gamma\left( \mathcal{E}^{ [A B] }\right) \) such that
     \[
       X \wedge \Sigma = 0.
     \]
@@ -164,11 +216,9 @@ These are the \emph{tractor bundles}.
   The theorem consists of two conditions:\\
   \begin{enumerate}
     \pause
-    \item \( X \wedge \Sigma = 0\) is an incidence relation which
-      ensures that one is on the curve, and
+    \item \( X \wedge \Sigma = 0\) is a kind of incidence relation, and
     \pause
-    \item the condition \( \Sigma \) is parallel along \( \gamma \) exactly
-  recovers the geodesic equation.
+    \item the condition \( \nabla_{\dot{\gamma}} \Sigma = 0 \) exactly recovers the geodesic equation.
   \end{enumerate}
 \end{frame}
 
@@ -189,7 +239,8 @@ These are the \emph{tractor bundles}.
   \pause
   Again the result consists of an incidence relation and an equation exactly
   equivalent to the appropriate distinguished curve equation.
-
+  \pause
+  \hspace{1em}\\
   NB: The theorem for null geodesics is almost identical to the projective geometry version.
 \end{frame}
 
@@ -222,9 +273,12 @@ These are the \emph{tractor bundles}.
     We take inspiration from the classical result. 
       This required two things:
       \begin{itemize}
+        \pause
         \item a distinguished curve, and
+        \pause
         \item a \emph{symmetry} of the geometry.
       \end{itemize}
+      \pause
       We have already a tractor which describes the distinguished curves. Therefore we would like to find a section \( S \) of some tractor bundle such that e.g. \( \nabla_{\dot{\gamma}} \left(\Sigma \cdot S \right) = 0 \). 
       In light of our earlier theorems, this is equivalent to the simpler
       \[
@@ -238,6 +292,7 @@ These are the \emph{tractor bundles}.
   Let \( \mathcal{V} \) be a tractor bundle.
   Then one may form the \emph{twisted de Rham} sequence.
   We shall mainly be interested in the first square:
+  \pause
   \[
     \begin{tikzcd}[ampersand replacement=\&, row sep=huge, column sep=huge]
       \mathcal{V} \arrow[r, "\nabla^{\mathcal{T}}"] \arrow[d, "\Pi_0"] \& T^*M \otimes \mathcal{V} \arrow[l, "\hspace{-2em}\partial^*", near start, bend left=20] \arrow[d, "\Pi_1"]\\
@@ -245,6 +300,7 @@ These are the \emph{tractor bundles}.
     \end{tikzcd}
   \]
   where \( \Theta := L \circ \nabla^{\mathcal{T}} \circ \Pi_1 \).
+  \pause
   \begin{block}{}
   One may ask for solutions to the equation \( \Theta \sigma = 0 \) for various tractor bundles \( \mathcal{V} \).
   This class of \emph{BGG equations} turns out to include a large number of interesting geometric PDEs, for example: 
@@ -257,10 +313,13 @@ These are the \emph{tractor bundles}.
 \end{frame}
 
 \begin{frame}{Putting it all together}
+  \hspace{1em}
   \begin{block}{Key idea}
     The splitting operator \( L \) allows us to convert solutions to geometrically interesting PDEs into sections of certain tractor bundles.
     We therefore might try replacing \( S \) in the above with \( L(\sigma) \), where \( \sigma \) solves some BGG equation.
   \end{block}
+  \hspace{1em}
+  \pause
 
   The requirement that 
     \[
@@ -278,23 +337,31 @@ These are the \emph{tractor bundles}.
     \).
     Then the scalar \( \Sigma^{ABC} \mathbb{K}_{ABC} \) is conserved along \(
     \gamma \).
+    In a scale, one has
+    \[
+      \Sigma^{ABC} \mathbb{K}_{ABC} = \mathbf{u}^a \mathbf{a}^b k_{ab} \mp \frac{1}{n-1} \mathbf{u}^a \nabla^c k_{ca}.
+    \]
   \end{Theorem}
   \pause
-  \begin{proof}[Proof (Sketch)]
-    Writing \( u^a \) for the velocity of the curve \( \gamma \) and applying
-    the Leibniz rule for the (coupled) tractor connection, we calculate
-    \pause
-    \begin{align*}
-      u^a \nabla^\mathcal{T}_a \left( \Sigma^{ABC} \mathbb{K}_{ABC} \right) &=
-      \left( u^a \nabla^\mathcal{T}_a \Sigma^{ABC} \right) \mathbb{K}_{ABC} +
-      \Sigma^{ABC} u^a \nabla^\mathcal{T}_a \mathbb{K}_{ABC}\\
-      &= \Sigma^{ABC} u^a \nabla^\mathcal{T}_a \mathbb{K}_{ABC},
-    \end{align*}
-    since according to our main result, \( \Sigma^{ABC} \) has derivative zero
-    along \( \gamma \).
-    \pause
-    Using explicit formulae for \( \Sigma \) and \( \mathbb{K} \), one sees
-    that this remaining term also vanishes.
+  \begin{proof}[Proof (sketch)]
+    % Applying the Leibniz rule for the tractor connection, we calculate
+    % \pause
+    % \begin{align*}
+    %   u^a \nabla^\mathcal{T}_a \left( \Sigma^{ABC} \mathbb{K}_{ABC} \right) &=
+    %   \left( u^a \nabla^\mathcal{T}_a \Sigma^{ABC} \right) \mathbb{K}_{ABC} +
+    %   \Sigma^{ABC} u^a \nabla^\mathcal{T}_a \mathbb{K}_{ABC}\\
+    %   &= \Sigma^{ABC} u^a \nabla^\mathcal{T}_a \mathbb{K}_{ABC},
+    % \end{align*}
+    % since according to our main result, \( \Sigma^{ABC} \) has derivative zero
+    % along \( \gamma \).
+    % \pause
+    % Using explicit formulae for \( \Sigma \) and \( \mathbb{K} \), one sees
+    % that this remaining term also vanishes.
+    Two different ways:
+    \begin{itemize}
+      \item use the explicit formula for the quantity given above;
+      \item use techniques from BGG theory, work of \v{C}ap, Sou\v{c}ek, Somberg, \v{S}ilhan...
+    \end{itemize}
   \end{proof}
 \end{frame}
 
@@ -313,41 +380,40 @@ These are the \emph{tractor bundles}.
     \pause
     \item And in the projective case:
       \[
-        \Sigma^{\alpha_1 \beta_1} \Sigma^{\alpha_2 \beta_2} H_{\alpha_1
-        \alpha_2} H_{\beta_1 \beta_2},
+        \Sigma^{A_1 B_1} \Sigma^{A_2 B_2} H_{A_1
+        A_2} H_{B_1 B_2},
       \]
       where \( H_{\alpha \beta} \) corresponds to the projective version of the
       aforementioned third-order equation.\\
       \pause
     \item Finally, in projective geometry:
       \[
-        \Sigma^{\alpha \beta} \mathbb{K}_{\alpha \beta},
+        \Sigma^{A B} \mathbb{K}_{A B},
       \]
       where \( \mathbb{K}_{\alpha \beta} \) comes from a Killing vector field recovers the well-known conserved quantity.
   \end{itemize}
 \end{frame}
 
-% \section{Further work}
+\section{Ongoing work}
 
-% \begin{frame}{Further work}
-%   \begin{itemize}
-%     \pause
-%     \item There is an interesting observation in all of these examples: at no
-%       point did we assume that our BGG solutions were normal, but the
-%       quantities constructed from them are still conserved!\\
-%       \pause
-%       We do not yet have a complete proof that normality is not required,
-%       but we have some reason to suspect that this is the case.\\
-%     \pause
-%     \item Our characterisation should extend to other parabolic geometries,
-%       such as c-projective geometry and CR geometry.\\
-%     \pause
-%     \item Finally, we also believe that these tools can be used to characterise
-%     distinguished submanifolds of other dimensions, such as the totally geodesic
-%     submanifolds in a projective manifold, or the totally umbilic submanifolds in
-%     a conformal manifold.
-% \end{itemize}
-% \end{frame}
+\begin{frame}{Ongoing work}
+  \begin{block}{}
+    We are currently working on developing characterizations of the distinguished curves from some other parabolic geometries, as well as fitting our results into the existing theory of distinguished curves in parabolic geometries. \\
+    \hspace{1em}\\
+    \pause
+    Ultimately this machinery along with the conserved quantities it produces should have applications to integrable systems and separability of PDE.
+  \end{block}
+\end{frame}
+
+\begin{frame}{Thank you}
+  \begin{block}{}
+  Details in \href{https://arxiv.org/abs/1806.09830}{arXiv:1806.0983}\\
+  \hspace{1em}\\
+  Slides: \href{https://github.com/snelltrail/austms_2018}{https://github.com/snelltrail/austms\_2018}\\
+  \hspace{1em}\\
+  Contact: \href{mailto:daniel.snell@auckland.ac.nz}{daniel.snell@auckland.ac.nz}
+  \end{block}
+\end{frame}
 
 \end{document}
 
